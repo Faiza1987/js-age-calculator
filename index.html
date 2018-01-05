@@ -8,6 +8,34 @@
   </head>
   <body>
     <div class="container">
+      <h1>Super Galactic Age Calculator</h1>
+      <h4>A solar year lasts 365 days on planet Earth. However, the length of a solar year varies from planet to planet. This program determines a humans’s age based on a planet’s solar years.</h4>
+      <form id="user-info">
+        <div class="form-group">
+          <label for="born">Date of birth:</label>
+          <input id="born" class="form-control" type="date">
+        </div>
+        <p>Select your gender:</p>
+        <select class="form-control" id="gender">
+          <option>male</option>
+          <option>female</option>
+        </select>
+        <p>Select region you are living in:</p>
+        <select class="form-control" id="region">
+          <option>poor</option>
+          <option>highly developed</option>
+        </select>
+        <button type="submit" class="btn-primary">Submit</button>
+      </form>
+
+    </div>
+    <div class="result">
+      <div class="galactic-age">
+        <p>your age on Mercury: <span id="mercury-age"></span></p>
+        <p>your age on Venus: <span id="venus-age"></span></p>
+        <p>your age on Mars: <span id="mars-age"></span></p>
+        <p>your age on Jupiter: <span id="jupiter-age"></span></p>
+      </div>
 
     </div>
   </body>
