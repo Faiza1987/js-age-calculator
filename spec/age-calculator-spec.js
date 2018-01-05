@@ -8,10 +8,10 @@ describe('AgeCalculator', function() {
   })
 
   it('should count the expected lifespan based on user age', function() {
-    expect(reusableUser.mercuryLifespan()).toEqual(113);
-    expect(reusableUser.venusLifespan()).toEqual(113);
-    expect(reusableUser.marsLifespan()).toEqual(113);
-    expect(reusableUser.jupiterLifespan()).toEqual(11);
+    expect(reusableUser.mercuryLifespan()).toEqual(270);
+    expect(reusableUser.venusLifespan()).toEqual(104);
+    expect(reusableUser.marsLifespan()).toEqual(34);
+    expect(reusableUser.jupiterLifespan()).toEqual(5);
   });
 
 });
