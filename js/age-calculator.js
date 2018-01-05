@@ -14,20 +14,21 @@ export class AgeCalculator {
     let currentMonth = today.getMonth()+1;
     let currentDay = today.getDate();
 
+    this.age = currentYear-userYear;
     this.ageInSeconds = ((currentYear-userYear)* 31536000) + ((currentMonth-userMonth)* 2592000) + ((currentDay-userDay)* 86400);
 
 
     if (this.gender === "male") {
       if (this.region === "poor") {
-        this.avarageLifespan = 60
+        this.avarageLifespan = 60;
       } else if (this.region === "highly developed") {
-        this.avarageLifespan = 75
+        this.avarageLifespan = 75;
       }
     } else if (this.gender === "female") {
       if (this.region === "poor") {
-        this.avarageLifespan = 65
+        this.avarageLifespan = 65;
       } else if (this.region === "highly developed") {
-        this.avarageLifespan = 85
+        this.avarageLifespan = 85;
       }
     }
 
@@ -69,6 +70,12 @@ export class AgeCalculator {
   }
   jupiterLifespan() {
     return Math.floor(this.avarageLifespan/11.86);
+  }
+
+  alive(age, lifespan) {
+    if (age > lifespan) {
+      return "You should be dead already!";
+    }
   }
 
 }

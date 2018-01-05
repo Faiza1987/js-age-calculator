@@ -27,6 +27,7 @@ var AgeCalculator = exports.AgeCalculator = function () {
     var currentMonth = today.getMonth() + 1;
     var currentDay = today.getDate();
 
+    this.age = currentYear - userYear;
     this.ageInSeconds = (currentYear - userYear) * 31536000 + (currentMonth - userMonth) * 2592000 + (currentDay - userDay) * 86400;
 
     if (this.gender === "male") {
@@ -88,6 +89,13 @@ var AgeCalculator = exports.AgeCalculator = function () {
     value: function jupiterLifespan() {
       return Math.floor(this.avarageLifespan / 11.86);
     }
+  }, {
+    key: "alive",
+    value: function alive(age, lifespan) {
+      if (age > lifespan) {
+        return "You should be dead already!";
+      }
+    }
   }]);
 
   return AgeCalculator;
@@ -104,6 +112,8 @@ $(document).ready(function () {
     var born = $('#born').val();
     var gender = $('#gender').val();
     var region = $('#region').val();
+
+    $(".result").show();
 
     var newUser = new _ageCalculator.AgeCalculator(born, gender, region);
 
@@ -126,6 +136,9 @@ $(document).ready(function () {
     $('#jupiter-age').text(ageOnJupiter);
     var lifespanOnJupiter = newUser.jupiterLifespan();
     $('#jupiter-lifespan').text(lifespanOnJupiter);
+
+    var message = newUser.alive(ageOnMercury, lifespanOnMercury);
+    $("#message").text(message);
   });
 });
 

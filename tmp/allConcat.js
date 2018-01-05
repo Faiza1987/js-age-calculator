@@ -7,6 +7,8 @@ $(document).ready(function() {
     let gender = $('#gender').val();
     let region = $('#region').val();
 
+    $(".result").show();
+
     let newUser = new AgeCalculator(born, gender, region);
 
     let ageOnMercury = newUser.mercuryAge();
@@ -28,6 +30,9 @@ $(document).ready(function() {
     $('#jupiter-age').text(ageOnJupiter);
     let lifespanOnJupiter = newUser.jupiterLifespan();
     $('#jupiter-lifespan').text(lifespanOnJupiter);
+
+    let message = newUser.alive(ageOnMercury,lifespanOnMercury);
+    $("#message").text(message);
 
   });
 });
