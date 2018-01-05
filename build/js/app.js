@@ -28,6 +28,20 @@ var AgeCalculator = exports.AgeCalculator = function () {
     var currentDay = today.getDate();
 
     this.ageInSeconds = (currentYear - userYear) * 31536000 + (currentMonth - userMonth) * 2592000 + (currentDay - userDay) * 86400;
+
+    if (this.gender === "male") {
+      if (this.region === "poor") {
+        this.avarageLifespan = 60;
+      } else if (this.region === "highly developed") {
+        this.avarageLifespan = 75;
+      }
+    } else if (this.gender === "female") {
+      if (this.region === "poor") {
+        this.avarageLifespan = 65;
+      } else if (this.region === "highly developed") {
+        this.avarageLifespan = 85;
+      }
+    }
   }
 
   _createClass(AgeCalculator, [{
@@ -54,6 +68,26 @@ var AgeCalculator = exports.AgeCalculator = function () {
       var jupiterYearSeconds = 11.86 * 31536000;
       return Math.floor(this.ageInSeconds / jupiterYearSeconds);
     }
+  }, {
+    key: "mercuryLifespan",
+    value: function mercuryLifespan() {
+      return Math.floor(this.avarageLifespan / 0.24);
+    }
+  }, {
+    key: "venusLifespan",
+    value: function venusLifespan() {
+      return Math.floor(this.avarageLifespan / 0.62);
+    }
+  }, {
+    key: "marsLifespan",
+    value: function marsLifespan() {
+      return Math.floor(this.avarageLifespan / 1.88);
+    }
+  }, {
+    key: "jupiterLifespan",
+    value: function jupiterLifespan() {
+      return Math.floor(this.avarageLifespan / 11.86);
+    }
   }]);
 
   return AgeCalculator;
@@ -70,19 +104,28 @@ $(document).ready(function () {
     var born = $('#born').val();
     var gender = $('#gender').val();
     var region = $('#region').val();
+
     var newUser = new _ageCalculator.AgeCalculator(born, gender, region);
 
-    var mercury = newUser.mercuryAge();
-    $('#mercury-age').text(mercury);
+    var ageOnMercury = newUser.mercuryAge();
+    $('#mercury-age').text(ageOnMercury);
+    var lifespanOnMercury = newUser.mercuryLifespan();
+    $('#mercury-lifespan').text(lifespanOnMercury);
 
-    var venus = newUser.venusAge();
-    $('#venus-age').text(venus);
+    var ageOnVenus = newUser.venusAge();
+    $('#venus-age').text(ageOnVenus);
+    var lifespanOnVenus = newUser.venusLifespan();
+    $('#venus-lifespan').text(lifespanOnVenus);
 
-    var mars = newUser.marsAge();
-    $('#mars-age').text(mars);
+    var ageOnMars = newUser.marsAge();
+    $('#mars-age').text(ageOnMars);
+    var lifespanOnMars = newUser.marsLifespan();
+    $('#mars-lifespan').text(lifespanOnMars);
 
-    var jupiter = newUser.jupiterAge();
-    $('#jupiter-age').text(jupiter);
+    var ageOnJupiter = newUser.jupiterAge();
+    $('#jupiter-age').text(ageOnJupiter);
+    var lifespanOnJupiter = newUser.jupiterLifespan();
+    $('#jupiter-lifespan').text(lifespanOnJupiter);
   });
 });
 

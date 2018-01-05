@@ -6,18 +6,28 @@ $(document).ready(function() {
     let born = $('#born').val();
     let gender = $('#gender').val();
     let region = $('#region').val();
+
     let newUser = new AgeCalculator(born, gender, region);
 
-    let mercury = newUser.mercuryAge();
-    $('#mercury-age').text(mercury);
+    let ageOnMercury = newUser.mercuryAge();
+    $('#mercury-age').text(ageOnMercury);
+    let lifespanOnMercury = newUser.mercuryLifespan();
+    $('#mercury-lifespan').text(lifespanOnMercury);
 
-    let venus = newUser.venusAge();
-    $('#venus-age').text(venus);
+    let ageOnVenus = newUser.venusAge();
+    $('#venus-age').text(ageOnVenus);
+    let lifespanOnVenus = newUser.venusLifespan();
+    $('#venus-lifespan').text(lifespanOnVenus);
 
-    let mars = newUser.marsAge();
-    $('#mars-age').text(mars);
+    let ageOnMars = newUser.marsAge();
+    $('#mars-age').text(ageOnMars);
+    let lifespanOnMars = newUser.marsLifespan();
+    $('#mars-lifespan').text(lifespanOnMars);
 
-    let jupiter = newUser.jupiterAge();
-    $('#jupiter-age').text(jupiter);
+    let ageOnJupiter = newUser.jupiterAge();
+    $('#jupiter-age').text(ageOnJupiter);
+    let lifespanOnJupiter = newUser.jupiterLifespan();
+    $('#jupiter-lifespan').text(lifespanOnJupiter);
+
   });
 });
