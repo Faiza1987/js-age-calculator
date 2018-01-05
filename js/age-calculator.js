@@ -17,7 +17,6 @@ export class AgeCalculator {
     this.age = currentYear-userYear;
     this.ageInSeconds = ((currentYear-userYear)* 31536000) + ((currentMonth-userMonth)* 2592000) + ((currentDay-userDay)* 86400);
 
-
     if (this.gender === "male") {
       if (this.region === "poor") {
         this.avarageLifespan = 60;
@@ -31,33 +30,24 @@ export class AgeCalculator {
         this.avarageLifespan = 85;
       }
     }
-
   }
 
   mercuryAge() {
     let mercuryYearSeconds = 0.24 * 31536000;
     return Math.floor(this.ageInSeconds/mercuryYearSeconds);
   }
-
   venusAge() {
     let venusYearSeconds = 0.62 * 31536000;
     return Math.floor(this.ageInSeconds/venusYearSeconds);
   }
-
   marsAge() {
     let marsYearSeconds = 1.88 * 31536000;
     return Math.floor(this.ageInSeconds/marsYearSeconds);
   }
-
   jupiterAge() {
     let jupiterYearSeconds = 11.86 * 31536000;
     return Math.floor(this.ageInSeconds/jupiterYearSeconds);
   }
-
-
-
-
-
 
   mercuryLifespan() {
     return Math.floor(this.avarageLifespan/0.24);
@@ -77,5 +67,4 @@ export class AgeCalculator {
       return "You should be dead already!";
     }
   }
-
 }

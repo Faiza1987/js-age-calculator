@@ -17,7 +17,7 @@ describe('AgeCalculator', function() {
   });
 
   it('should check if the user is already over lifespan expextation', function() {
-    expect(reusableUser.alive(468,250)).toEqual("You should be dead already!");
+    expect(reusableUser2.alive(468,250)).toEqual("You should be dead already!");
   });
 
 });
